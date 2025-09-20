@@ -3,6 +3,7 @@ package com.mycompany.gestaofinance;
 
 import BO.BOFactory;
 import BO.DespesaBO;
+import BO.UsuarioBO;
 import DAO.DAOFactory;
 import DAO.DespesaDAO;
 import DAO.UsuarioDAO;
@@ -27,8 +28,15 @@ public class GestaoFinance {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
      
-        DespesaBO despesaBO = BOFactory.createDespesaBO();
-       
-        despesaBO.inserirDespesa(new Despesa(null, "cartao", 100.0, "Pendente", LocalDate.of(2025, 10, 30)));
+        UsuarioBO usuarioBO = BOFactory.createUsuarioBO();
+          
+        String username = "Jao";
+        String senha = "1234";
+        
+       if (usuarioBO.login(username, senha)) {
+           System.out.println("logado");
+       }else {
+           System.out.println("acesso negado");
+       }
     }
 }
