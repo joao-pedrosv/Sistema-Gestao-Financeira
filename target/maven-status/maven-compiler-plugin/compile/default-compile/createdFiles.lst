@@ -1,11 +1,13 @@
 DAO\impl\UsuarioDAOImpl.class
-DAO\impl\DespesaDAOImpl.class
+BO\BOFactory.class
 DataBase\DBIntegrityException.class
-DAO\DespesaDAO.class
-DAO\DAOFactory.class
 DAO\UsuarioDAO.class
 DataBase\DB.class
+BO\DespesaBO.class
 com\mycompany\gestaofinance\GestaoFinance.class
-DataBase\DBException.class
 model\Usuario.class
 model\Despesa.class
+DAO\impl\DespesaDAOImpl.class
+DAO\DespesaDAO.class
+DAO\DAOFactory.class
+DataBase\DBException.class

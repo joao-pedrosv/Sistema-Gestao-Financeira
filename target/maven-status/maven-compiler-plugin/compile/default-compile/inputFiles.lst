@@ -1,9 +1,11 @@
-C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\DAO\DespesaDAO.java
 C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\model\Usuario.java
-C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\DAO\DAOFactory.java
 C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\com\mycompany\gestaofinance\GestaoFinance.java
 C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\DataBase\DBIntegrityException.java
 C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\DAO\impl\UsuarioDAOImpl.java
+C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\BO\DespesaBO.java
+C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\BO\BOFactory.java
+C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\DAO\DespesaDAO.java
+C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\DAO\DAOFactory.java
 C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\DAO\UsuarioDAO.java
 C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\DataBase\DBException.java
 C:\Users\joaoz\Documents\NetBeansProjects\GestaoFinance\src\main\java\DAO\impl\DespesaDAOImpl.java

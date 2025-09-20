@@ -1,6 +1,8 @@
 
 package com.mycompany.gestaofinance;
 
+import BO.BOFactory;
+import BO.DespesaBO;
 import DAO.DAOFactory;
 import DAO.DespesaDAO;
 import DAO.UsuarioDAO;
@@ -24,16 +26,9 @@ public class GestaoFinance {
         
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");   
-        LocalDate dataVencimento;
-        
-        DB db = new DB();
+     
+        DespesaBO despesaBO = BOFactory.createDespesaBO();
        
-        db.criarTabelas();
-        
-        DespesaDAO despesaDAO = DAOFactory.createDespesaDAO();
-         
-        despesaDAO.delete(5);
+        despesaBO.inserirDespesa(new Despesa(null, "cartao", 100.0, "Pendente", LocalDate.of(2025, 10, 30)));
     }
 }
