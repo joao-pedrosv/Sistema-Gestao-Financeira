@@ -1,18 +1,17 @@
-
 package view;
 
 import BO.BOFactory;
 import BO.DespesaBO;
+import DataBase.DBException;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Despesa;
 
-
 public class BuscarData extends javax.swing.JFrame {
 
-   
     private DespesaBO despesaBO = BOFactory.createDespesaBO();
-    
+
     public BuscarData() {
         initComponents();
         setLocationRelativeTo(null);
@@ -167,28 +166,33 @@ public class BuscarData extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         List<Despesa> despesas = despesaBO.buscarPorData(Integer.valueOf(txtAno.getText()), Integer.valueOf(txtDia.getText()));
-        
-        
+
+        if (despesas.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Erro:" + "Data não encontrada", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         DefaultTableModel dtmDespesas = (DefaultTableModel) tabelaDatas.getModel();
-        
+
         dtmDespesas.setRowCount(0);
-        
-        for (Despesa despesa : despesas){
+
+        for (Despesa despesa : despesas) {
             Object[] linha = {despesa.getId(), despesa.getNome(), despesa.getPreco(), despesa.getStatus(), despesa.getDataVencimento()};
             dtmDespesas.addRow(linha);
         }
-        
+
         txtAno.setText("");
         txtDia.setText("");
-        
+
         double total = 0;
-        for (Despesa despesa : despesas){
+        for (Despesa despesa : despesas) {
             total += despesa.getPreco();
         }
-        
+
         totalMensal.setText("R$ " + String.format("%.2f", total));
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

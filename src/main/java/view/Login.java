@@ -168,7 +168,7 @@ public class Login extends javax.swing.JFrame {
             MenuPrincipal menu = new MenuPrincipal();
             menu.setVisible(true);
         } else {
-            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "ERRO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!", "Erro", JOptionPane.ERROR_MESSAGE);
             txtLogin.setText("");
             txtSenha.setText("");
         }

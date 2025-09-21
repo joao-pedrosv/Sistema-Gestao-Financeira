@@ -1,17 +1,16 @@
-
 package view;
 
 import BO.BOFactory;
 import BO.DespesaBO;
+import DataBase.DBException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Despesa;
 
-
 public class BuscarDespesa extends javax.swing.JFrame {
 
     private DespesaBO despesaBO = BOFactory.createDespesaBO();
-     
+
     public BuscarDespesa() {
         initComponents();
         setLocationRelativeTo(null);
@@ -139,18 +138,22 @@ public class BuscarDespesa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        Despesa despesa = despesaBO.buscarPorId(Integer.valueOf(txtId.getText()));
+        try {
+            Despesa despesa = despesaBO.buscarPorId(Integer.valueOf(txtId.getText()));
 
-        DefaultTableModel dtmDespesas = (DefaultTableModel) despesaId.getModel();
-        
-        dtmDespesas.setRowCount(0);
-        
-        Object[] linha = {despesa.getId(), despesa.getNome(), despesa.getPreco(), despesa.getStatus(), despesa.getDataVencimento()};
-        
-        dtmDespesas.addRow(linha);
-        
-        txtId.setText("");
+            DefaultTableModel dtmDespesas = (DefaultTableModel) despesaId.getModel();
+
+            dtmDespesas.setRowCount(0);
+
+            Object[] linha = {despesa.getId(), despesa.getNome(), despesa.getPreco(), despesa.getStatus(), despesa.getDataVencimento()};
+
+            dtmDespesas.addRow(linha);
+
+            txtId.setText("");
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(this, "Erro: " + "Despesa não encontrada", "Erro",JOptionPane.ERROR_MESSAGE);
+            e.getStackTrace();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

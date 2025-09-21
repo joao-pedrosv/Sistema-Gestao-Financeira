@@ -1,15 +1,13 @@
-
 package view;
 
 import BO.BOFactory;
 import BO.DespesaBO;
 import javax.swing.JOptionPane;
 
-
 public class ExcluirDespesa extends javax.swing.JFrame {
 
     private DespesaBO despesaBO = BOFactory.createDespesaBO();
-    
+
     public ExcluirDespesa() {
         initComponents();
         setLocationRelativeTo(null);
@@ -113,9 +111,14 @@ public class ExcluirDespesa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        despesaBO.deletar(Integer.valueOf(deleteId.getText()));
-        JOptionPane.showMessageDialog(null, "Despesa Excluída!");
-        deleteId.setText("");
+
+        if (deleteId.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Erro:" + "Campo não preenchido", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+            despesaBO.deletar(Integer.valueOf(deleteId.getText()));
+            JOptionPane.showMessageDialog(null, "Despesa Excluída!");
+            deleteId.setText("");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

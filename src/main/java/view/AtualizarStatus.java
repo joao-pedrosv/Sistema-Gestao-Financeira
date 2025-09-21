@@ -128,13 +128,17 @@ public class AtualizarStatus extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
             Despesa despesa = despesaBO.buscarPorId(Integer.valueOf(txtId.getText()));
             despesa.setStatus(txtStatus.getText());
             despesaBO.atualizar(despesa);
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
-            
+
             txtId.setText("");
             txtStatus.setText("");
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Erro: " + "despesa não encontrada!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

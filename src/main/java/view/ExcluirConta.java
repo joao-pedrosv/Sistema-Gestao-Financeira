@@ -1,4 +1,3 @@
-
 package view;
 
 import BO.BOFactory;
@@ -8,7 +7,7 @@ import javax.swing.JOptionPane;
 public class ExcluirConta extends javax.swing.JFrame {
 
     private UsuarioBO usuarioBO = BOFactory.createUsuarioBO();
-    
+
     public ExcluirConta() {
         initComponents();
         setLocationRelativeTo(null);
@@ -96,11 +95,15 @@ public class ExcluirConta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        usuarioBO.deletar(emailDelete.getText());
-        JOptionPane.showMessageDialog(null, "Conta Excluida!");
-        setVisible(false);
-        Login login = new Login();
-        login.setVisible(true);
+        if (emailDelete.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Erro:" + "Campo não preenchido", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+            usuarioBO.deletar(emailDelete.getText());
+            JOptionPane.showMessageDialog(null, "Conta Excluida!");
+            setVisible(false);
+            Login login = new Login();
+            login.setVisible(true);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

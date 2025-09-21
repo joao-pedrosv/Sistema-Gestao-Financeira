@@ -1,4 +1,3 @@
-
 package view;
 
 import BO.BOFactory;
@@ -9,7 +8,7 @@ import model.Usuario;
 public class AlterarLogin extends javax.swing.JFrame {
 
     private UsuarioBO usuarioBO = BOFactory.createUsuarioBO();
-    
+
     public AlterarLogin() {
         initComponents();
         setLocationRelativeTo(null);
@@ -127,14 +126,21 @@ public class AlterarLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
-        Usuario usuario = new Usuario(null, newUsername.getText(), txtEmail.getText(), newSenha.getText());
+
         
-        usuarioBO.atualizar(usuario);
-        JOptionPane.showMessageDialog(null, "Login Alterado com sucesso!");
-        setVisible(false);
+            Usuario usuario = new Usuario(null, newUsername.getText(), txtEmail.getText(), newSenha.getText());
+
+            if (usuario.getEmail().equals("") || usuario.getUsername().equals("") || usuario.getSenha().equals("")) {
+                JOptionPane.showMessageDialog(null, "Erro: " + "Campos não preenchidos", "Erro", JOptionPane.ERROR_MESSAGE);
+            } else {
+                usuarioBO.atualizar(usuario);
+                JOptionPane.showMessageDialog(null, "Login Alterado com sucesso!");
+                setVisible(false);
+
+                Login login = new Login();
+                login.setVisible(true);
+            }
         
-        Login login = new Login();
-        login.setVisible(true);
     }//GEN-LAST:event_salvarActionPerformed
 
     /**

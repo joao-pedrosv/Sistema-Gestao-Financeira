@@ -1,4 +1,3 @@
-
 package view;
 
 import BO.BOFactory;
@@ -8,13 +7,12 @@ import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 import model.Despesa;
 
-
 public class InserirDespesa extends javax.swing.JFrame {
 
     private DespesaBO despesaBO = BOFactory.createDespesaBO();
-    
+
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    
+
     public InserirDespesa() {
         initComponents();
         setLocationRelativeTo(null);
@@ -163,12 +161,19 @@ public class InserirDespesa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        despesaBO.inserirDespesa(new Despesa(null, txtNome.getText(), Double.valueOf(txtPreco.getText()), txtStatus.getText(), LocalDate.parse(txtData.getText(), dtf)));
-        JOptionPane.showMessageDialog(null, "Despesa inserida com sucesso!");
-        txtNome.setText("");
-        txtPreco.setText("");
-        txtStatus.setText("");
-        txtData.setText("");
+
+        if (txtNome.getText().equals("") || txtPreco.getText().equals("") || txtStatus.getText().equals("") || txtData.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Erro:" + "Campos não preenchidos", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+            Despesa despesa = new Despesa(null, txtNome.getText(), Double.valueOf(txtPreco.getText()), txtStatus.getText(), LocalDate.parse(txtData.getText(), dtf));
+
+            despesaBO.inserirDespesa(despesa);
+            JOptionPane.showMessageDialog(null, "Despesa inserida com sucesso!");
+            txtNome.setText("");
+            txtPreco.setText("");
+            txtStatus.setText("");
+            txtData.setText("");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

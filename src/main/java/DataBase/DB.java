@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class DB {
 
         private static final String DRIVE_MYSQL = "com.mysql.cj.jdbc.Driver";
-        private static final String ENDERECO = "jdbc:mysql://localhost:3306/teste5";
+        private static final String ENDERECO = "jdbc:mysql://localhost:3306/teste6";
         private static final String USUARIO = "root";
         private static final String SENHA = "382428";
         

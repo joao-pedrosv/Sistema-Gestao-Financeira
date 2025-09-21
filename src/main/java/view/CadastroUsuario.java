@@ -1,4 +1,3 @@
-
 package view;
 
 import BO.BOFactory;
@@ -6,11 +5,10 @@ import BO.UsuarioBO;
 import javax.swing.JOptionPane;
 import model.Usuario;
 
-
 public class CadastroUsuario extends javax.swing.JFrame {
 
     private UsuarioBO usuarioBO = BOFactory.createUsuarioBO();
-    
+
     public CadastroUsuario() {
         initComponents();
         setLocationRelativeTo(null);
@@ -137,12 +135,20 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_cadNomeUsuarioActionPerformed
 
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
-       usuarioBO.inserirUsuario(new Usuario(null, cadNomeUsuario.getText(), cadEmail.getText(), cadSenha.getText()));
-        JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
-        setVisible(false);
-        
-        Login login = new Login();
-        login.setVisible(true);
+
+        Usuario usuario = new Usuario(null, cadNomeUsuario.getText(), cadEmail.getText(), cadSenha.getText());
+
+        if (usuario.getEmail().equals("") || usuario.getUsername().equals("") || usuario.getSenha().equals("")) {
+            JOptionPane.showMessageDialog(null, "Erro: " + "Campos não preenchidos", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
+            usuarioBO.inserirUsuario(usuario);
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!");
+            setVisible(false);
+
+            Login login = new Login();
+            login.setVisible(true);
+        }
+
     }//GEN-LAST:event_cadastrarActionPerformed
 
     /**
