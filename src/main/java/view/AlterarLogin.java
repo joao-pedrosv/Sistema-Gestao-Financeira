@@ -128,6 +128,7 @@ public class AlterarLogin extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         Usuario usuario = new Usuario(null, newUsername.getText(), txtEmail.getText(), newSenha.getText());
+        
         usuarioBO.atualizar(usuario);
         JOptionPane.showMessageDialog(null, "Login Alterado com sucesso!");
         setVisible(false);

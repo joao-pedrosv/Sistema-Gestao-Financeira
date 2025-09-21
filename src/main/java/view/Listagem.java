@@ -151,6 +151,7 @@ public class Listagem extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       
         List<Despesa> despesas = despesaBO.listar();
+   
         DefaultTableModel dtmDespesas = (DefaultTableModel) listaTabela.getModel();
         
         dtmDespesas.setRowCount(0);
@@ -166,7 +167,7 @@ public class Listagem extends javax.swing.JFrame {
             total += despesa.getPreco();
         }
         
-        txtTotal.setText("R$: " + String.format("%.2f", total));
+        txtTotal.setText("R$ " + String.format("%.2f", total));
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

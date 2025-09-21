@@ -3,6 +3,7 @@ package view;
 
 import BO.BOFactory;
 import BO.DespesaBO;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Despesa;
 
@@ -140,7 +141,7 @@ public class BuscarDespesa extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         Despesa despesa = despesaBO.buscarPorId(Integer.valueOf(txtId.getText()));
-        
+
         DefaultTableModel dtmDespesas = (DefaultTableModel) despesaId.getModel();
         
         dtmDespesas.setRowCount(0);
