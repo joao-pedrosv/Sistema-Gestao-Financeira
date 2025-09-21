@@ -1,17 +1,16 @@
-
 package view;
 
 import BO.BOFactory;
 import BO.UsuarioBO;
 import DataBase.DB;
 import javax.swing.JOptionPane;
+import model.Despesa;
+import model.Usuario;
 
 public class Login extends javax.swing.JFrame {
 
     private UsuarioBO usuarioBO = BOFactory.createUsuarioBO();
-    
-   
-    
+
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
@@ -163,8 +162,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        if (usuarioBO.login(txtLogin.getText(), txtLogin.getText(), txtSenha.getText())){
+
+        if (usuarioBO.login(txtLogin.getText(), txtLogin.getText(), txtSenha.getText())) {
             JOptionPane.showMessageDialog(null, "Acesso Permitido!");
             setVisible(false);
             MenuPrincipal menu = new MenuPrincipal();
@@ -192,7 +191,7 @@ public class Login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);

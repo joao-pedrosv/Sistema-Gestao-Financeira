@@ -1,6 +1,8 @@
 
 package model;
 
+import BO.BOFactory;
+import BO.UsuarioBO;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -14,7 +16,6 @@ public class Despesa implements Serializable{
     private Double preco;
     private String status;
     private LocalDate dataVencimento;
-
     
     public Despesa(){
     }

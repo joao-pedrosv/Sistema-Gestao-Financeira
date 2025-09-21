@@ -24,7 +24,7 @@ public class UsuarioBO {
         usuarioDAO.delete(email);
     }
     
-    public boolean login(String username, String email, String senha){
+     public boolean login(String username, String email, String senha){
          return usuarioDAO.login(username, email, senha);
     }
     
