@@ -152,7 +152,7 @@ public class DespesaDAOImpl implements DespesaDAO {
         try {
             st = conn.prepareStatement(
                     "SELECT * FROM despesas "
-                    + "ORDER BY Id"
+                    + "ORDER BY data_vencimento"
             );
 
             rs = st.executeQuery();

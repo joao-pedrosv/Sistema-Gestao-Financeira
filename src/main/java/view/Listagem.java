@@ -1,18 +1,16 @@
-
 package view;
 
 import BO.BOFactory;
 import BO.DespesaBO;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Despesa;
-
 
 public class Listagem extends javax.swing.JFrame {
 
     private DespesaBO despesaBO = BOFactory.createDespesaBO();
-            
-            
+
     public Listagem() {
         initComponents();
         setLocationRelativeTo(null);
@@ -175,28 +173,28 @@ public class Listagem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      
+
         List<Despesa> despesas = despesaBO.listar();
-   
+
         DefaultTableModel dtmDespesas = (DefaultTableModel) listaTabela.getModel();
-        
+
         dtmDespesas.setRowCount(0);
-        
-        for (Despesa despesa : despesas){
+
+        for (Despesa despesa : despesas) {
             Object[] linha = {despesa.getId(), despesa.getNome(), despesa.getPreco(), despesa.getStatus(), despesa.getDataVencimento()};
             dtmDespesas.addRow(linha);
         }
-        
+
         double total = 0;
-        
-        for (Despesa despesa : despesas){
-            if (despesa.getStatus().equals("pendente") || despesa.getStatus().equals("Pendente")){
+
+        for (Despesa despesa : despesas) {
+            if (despesa.getStatus().equals("pendente") || despesa.getStatus().equals("Pendente")) {
                 total += despesa.getPreco();
             }
         }
-        
+
         txtTotal.setText("R$ " + String.format("%.2f", total));
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -207,6 +205,16 @@ public class Listagem extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
+        int row = listaTabela.getSelectedRow();
+
+        int id = (int) listaTabela.getValueAt(row, 0);
+
+        despesaBO.deletar(id);
+
+        DefaultTableModel dtm = (DefaultTableModel) listaTabela.getModel();
+        dtm.removeRow(row);
+
+        JOptionPane.showMessageDialog(this, "Despesa excluída com sucesso!");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

@@ -188,9 +188,7 @@ public class BuscarData extends javax.swing.JFrame {
 
         double total = 0;
         for (Despesa despesa : despesas){
-            if (despesa.getStatus().equals("pendente") || despesa.getStatus().equals("Pendente")){
                 total += despesa.getPreco();
-            }
         }
 
         totalMensal.setText("R$ " + String.format("%.2f", total));
