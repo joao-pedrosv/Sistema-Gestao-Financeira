@@ -132,6 +132,9 @@ public class AtualizarStatus extends javax.swing.JFrame {
             despesa.setStatus(txtStatus.getText());
             despesaBO.atualizar(despesa);
             JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            
+            txtId.setText("");
+            txtStatus.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

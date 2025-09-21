@@ -148,6 +148,8 @@ public class BuscarDespesa extends javax.swing.JFrame {
         Object[] linha = {despesa.getId(), despesa.getNome(), despesa.getPreco(), despesa.getStatus(), despesa.getDataVencimento()};
         
         dtmDespesas.addRow(linha);
+        
+        txtId.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

@@ -97,7 +97,7 @@ public class ExcluirConta extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         usuarioBO.deletar(emailDelete.getText());
-        JOptionPane.showMessageDialog(null, "Conta Ecluida!");
+        JOptionPane.showMessageDialog(null, "Conta Excluida!");
         setVisible(false);
         Login login = new Login();
         login.setVisible(true);
