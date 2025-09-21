@@ -14,41 +14,30 @@ public class DespesaBO {
 
     public void inserirDespesa(Despesa despesa) {
         despesaDAO.insert(despesa);
-
-        System.out.println("Inserido com sucesso!");
     }
     
     public void atualizar(Despesa despesa){
         despesaDAO.update(despesa);
-        
-        System.out.println("Atualizado com sucesso!");
     }
 
     public void deletar(int id) {
         despesaDAO.delete(id);
-
-        System.out.println("Excluido com sucesso!");
     }
 
-    public void buscarPorId(int id) {
-        Despesa despesa = despesaDAO.findById(id);
-
-        System.out.println(despesa);
+    public Despesa buscarPorId(int id) {
+        return despesaDAO.findById(id);
     }
 
-    public void buscarPorData(int ano, int mes) {
+    public List<Despesa> buscarPorData(int ano, int mes) {
         List<Despesa> despesas = despesaDAO.findByDate(ano, mes);
 
-        for (Despesa despesa : despesas) {
-            System.out.println(despesa);
-        }
+        return despesas;
     }
     
-    public void listar() {
+    public List<Despesa> listar() {
         List<Despesa> despesas = despesaDAO.findAll();
+        
+        return despesas;
 
-        for (Despesa despesa : despesas) {
-            System.out.println(despesa);
-        }
     }
 }

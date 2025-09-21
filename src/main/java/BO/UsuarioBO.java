@@ -14,24 +14,18 @@ public class UsuarioBO {
     
     public void inserirUsuario(Usuario usuario){
         usuarioDAO.insert(usuario);
-        
-        System.out.println("Usuário inserido com sucesso!");
     }
     
     public void atualizar(Usuario usuario){
         usuarioDAO.update(usuario);
-        
-        System.out.println("Usuário atualizado com sucesso");
     }
     
-    public void deletar(Integer id){
-        usuarioDAO.delete(id);
-        
-        System.out.println("Usuário excluído com sucesso!");
+    public void deletar(String email){
+        usuarioDAO.delete(email);
     }
     
-    public boolean login(String username, String senha){
-         return usuarioDAO.login(username, senha);
+    public boolean login(String username, String email, String senha){
+         return usuarioDAO.login(username, email, senha);
     }
     
 }

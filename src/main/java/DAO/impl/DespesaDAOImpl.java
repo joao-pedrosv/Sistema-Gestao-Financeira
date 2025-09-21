@@ -62,15 +62,12 @@ public class DespesaDAOImpl implements DespesaDAO {
         try {
             st = conn.prepareStatement(
                     "UPDATE despesas "
-                    + "SET nome = ?, preco = ?, status = ?, data_vencimento = ?"
+                    + "SET status = ?"
                     + "WHERE Id = ?"
             );
-
-            st.setString(1, despesa.getNome());
-            st.setDouble(2, despesa.getPreco());
-            st.setString(3, despesa.getStatus());
-            st.setDate(4, java.sql.Date.valueOf(despesa.getDataVencimento()));
-            st.setInt(5, despesa.getId());
+   
+            st.setString(1, despesa.getStatus());
+            st.setInt(2, despesa.getId());
 
             st.executeUpdate();
         } catch (SQLException e) {

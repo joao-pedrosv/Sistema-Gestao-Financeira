@@ -25,13 +25,14 @@ public class UsuarioDAOImpl implements UsuarioDAO {
         try {
             st = conn.prepareStatement(
                     "INSERT INTO usuario "
-                    + "(Username, Senha) "
+                    + "(Username, Email, Senha) "
                     + "VALUES "
-                    + "(?, ?)",
+                    + "(?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
 
             st.setString(1, usuario.getUsername());
-            st.setString(2, usuario.getSenha());
+            st.setString(2, usuario.getEmail());
+            st.setString(3, usuario.getSenha());
 
             int rowsAffected = st.executeUpdate();
             if (rowsAffected > 0) {
@@ -58,13 +59,13 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             st = conn.prepareStatement(
                     "UPDATE usuario "
                     + "SET Username = ?, Senha = ? "
-                    + "WHERE Id = ?"
+                    + "WHERE Email = ? "
             );
 
             st.setString(1, usuario.getUsername());
             st.setString(2, usuario.getSenha());
-            st.setInt(3, usuario.getId());
-
+            st.setString(3, usuario.getEmail());
+       
             st.executeUpdate();
         } catch (SQLException e) {
             throw new DBException(e.getMessage());
@@ -74,15 +75,15 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     @Override
-    public void delete(Integer id) {
+    public void delete(String email) {
         PreparedStatement st = null;
         try {
             st = conn.prepareStatement(
                     "DELETE FROM usuario "
-                    + "WHERE Id = ?"
+                    + "WHERE email = ?"
             );
 
-            st.setInt(1, id);
+            st.setString(1, email);
 
             st.executeUpdate();
         } catch (SQLException e) {
@@ -93,14 +94,15 @@ public class UsuarioDAOImpl implements UsuarioDAO {
     }
 
     @Override
-    public boolean login(String username, String senha) {
+    public boolean login(String username, String email, String senha) {
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
-            st = conn.prepareStatement("SELECT * FROM usuario WHERE username = ? AND senha = ?");
+            st = conn.prepareStatement("SELECT * FROM usuario WHERE (username = ? OR email = ?) AND senha = ?");
 
             st.setString(1, username);
-            st.setString(2, senha);
+            st.setString(2, email);
+            st.setString(3, senha);
 
             rs = st.executeQuery();
             return rs.next(); 
