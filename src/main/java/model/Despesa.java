@@ -14,6 +14,7 @@ public class Despesa implements Serializable{
     private Double preco;
     private String status;
     private LocalDate dataVencimento;
+
     
     public Despesa(){
     }
@@ -65,9 +66,7 @@ public class Despesa implements Serializable{
     public void setDataVencimento(LocalDate dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
-    
-    
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
