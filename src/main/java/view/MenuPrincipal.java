@@ -34,14 +34,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Menu Principal");
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Inserir despesa");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -50,7 +51,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(153, 153, 153));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Listar despesas");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +61,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(153, 153, 153));
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(0, 0, 0));
         jButton6.setText("Buscar por data");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +71,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(153, 153, 153));
+        jButton7.setBackground(new java.awt.Color(255, 255, 255));
+        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setText("Sair");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +81,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(153, 153, 153));
+        jButton8.setBackground(new java.awt.Color(255, 255, 255));
+        jButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton8.setForeground(new java.awt.Color(0, 0, 0));
         jButton8.setText("Excluit conta");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +108,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(95, 95, 95))
+                .addGap(101, 101, 101))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

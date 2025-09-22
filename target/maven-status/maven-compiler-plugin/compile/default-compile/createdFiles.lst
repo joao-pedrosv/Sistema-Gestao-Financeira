@@ -27,6 +27,7 @@ view\Login$5.class
 view\MenuPrincipal$4.class
 view\BuscarData.class
 view\AlterarLogin.class
+view\Listagem$7.class
 view\Listagem$4.class
 view\MenuPrincipal$1.class
 view\AlterarLogin$2.class
@@ -38,6 +39,7 @@ BO\DespesaBO.class
 view\MenuPrincipal$2.class
 view\CadastroUsuario.class
 model\Usuario.class
+view\ExcluirConta$3.class
 view\AlterarLogin$1.class
 view\Login$4.class
 DataBase\DBException.class

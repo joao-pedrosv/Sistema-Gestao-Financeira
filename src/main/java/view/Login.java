@@ -37,16 +37,16 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
         jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setAlignmentX(0.0F);
         jPanel1.setAlignmentY(0.0F);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Login:");
 
-        txtLogin.setBackground(new java.awt.Color(153, 153, 153));
+        txtLogin.setBackground(new java.awt.Color(255, 255, 255));
         txtLogin.setForeground(new java.awt.Color(0, 0, 0));
         txtLogin.setCaretColor(new java.awt.Color(0, 0, 0));
         txtLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -55,11 +55,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Senha:");
 
-        txtSenha.setBackground(new java.awt.Color(153, 153, 153));
+        txtSenha.setBackground(new java.awt.Color(255, 255, 255));
         txtSenha.setForeground(new java.awt.Color(0, 0, 0));
         txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +68,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 153));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Entrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -77,12 +79,13 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Tela de Login");
 
-        realizarCadastro.setBackground(new java.awt.Color(153, 153, 153));
+        realizarCadastro.setBackground(new java.awt.Color(255, 255, 255));
+        realizarCadastro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         realizarCadastro.setForeground(new java.awt.Color(0, 0, 0));
         realizarCadastro.setText("Realizar cadastro");
         realizarCadastro.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +94,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        alterarLogin.setBackground(new java.awt.Color(153, 153, 153));
+        alterarLogin.setBackground(new java.awt.Color(255, 255, 255));
+        alterarLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         alterarLogin.setForeground(new java.awt.Color(0, 0, 0));
         alterarLogin.setText("Alterar login");
         alterarLogin.addActionListener(new java.awt.event.ActionListener() {
