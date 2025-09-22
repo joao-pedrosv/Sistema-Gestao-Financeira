@@ -120,6 +120,32 @@ public class DespesaDAOImpl implements DespesaDAO {
     }
     
     @Override
+    public List<Despesa> findByStatus(String status) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.prepareStatement("SELECT * FROM Despesas WHERE status = ?");
+
+            st.setString(1, status);
+            rs = st.executeQuery();
+            
+            List<Despesa> list = new ArrayList<>();
+            
+            while (rs.next()) {
+                Despesa despesa = instantiateDespesa(rs);
+                list.add(despesa);
+            }
+            return list;
+        } catch (SQLException e) {
+            throw new DBException(e.getMessage());
+        } finally {
+            DB.fecharStatement(st);
+            DB.fecharResultSet(rs);
+        }
+    }
+    
+    
+    @Override
     public List<Despesa> findByDate(int year, int month) {
         PreparedStatement st = null;
         ResultSet rs = null;

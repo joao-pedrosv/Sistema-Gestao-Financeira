@@ -29,6 +29,16 @@ public class DespesaBO {
         return despesaDAO.findById(id);
     }
 
+    public List<Despesa> buscarPorStatus(String status) {
+       try{
+        List<Despesa> despesas = despesaDAO.findByStatus(status);
+
+        return despesas;
+       } catch(DBException e){
+           throw new RuntimeException("Data não encontrada! "+ e.getMessage());
+       }
+    }
+ 
     public List<Despesa> buscarPorData(int ano, int mes) {
        try{
         List<Despesa> despesas = despesaDAO.findByDate(ano, mes);

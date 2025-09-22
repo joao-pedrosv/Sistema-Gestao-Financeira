@@ -1,10 +1,13 @@
 DAO\impl\UsuarioDAOImpl.class
+view\AlterarLogin$3.class
 view\Listagem$2.class
 BO\BOFactory.class
 view\InserirDespesa$2.class
 DataBase\DB.class
+view\CadastroUsuario$4.class
 view\MenuPrincipal.class
 view\Login$2.class
+view\MenuPrincipal$7.class
 model\Despesa.class
 view\AtualizarStatus$1.class
 view\Listagem$5.class
@@ -17,9 +20,11 @@ view\ExcluirConta.class
 view\Login$1.class
 view\InserirDespesa$3.class
 view\Listagem$1.class
+view\BuscarStatus$3.class
 view\CadastroUsuario$3.class
 DAO\impl\DespesaDAOImpl.class
 view\AtualizarStatus$2.class
+view\BuscarStatus.class
 view\ExcluirConta$2.class
 view\InserirDespesa.class
 view\BuscarData$2.class
@@ -35,6 +40,7 @@ DataBase\DBIntegrityException.class
 view\Listagem.class
 view\CadastroUsuario$2.class
 DAO\UsuarioDAO.class
+view\BuscarStatus$2.class
 BO\DespesaBO.class
 view\MenuPrincipal$2.class
 view\CadastroUsuario.class
@@ -55,4 +61,5 @@ view\Login$6.class
 view\MenuPrincipal$3.class
 view\Login.class
 view\AtualizarStatus.class
+view\BuscarStatus$1.class
 view\CadastroUsuario$1.class
