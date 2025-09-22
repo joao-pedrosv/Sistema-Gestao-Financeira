@@ -170,32 +170,36 @@ public class BuscarData extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        List<Despesa> despesas = despesaBO.buscarPorData(Integer.valueOf(txtAno.getText()), Integer.valueOf(txtDia.getText()));
+        if (txtAno.getText().equals("") || txtDia.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Erro: " + "Campos não preenchidos", "Erro", JOptionPane.ERROR_MESSAGE);
+        } else {
 
-        if (despesas.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Erro:" + "Data não encontrada", "Erro", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+            List<Despesa> despesas = despesaBO.buscarPorData(Integer.valueOf(txtAno.getText()), Integer.valueOf(txtDia.getText()));
 
-        DefaultTableModel dtmDespesas = (DefaultTableModel) tabelaDatas.getModel();
+            if (despesas.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Erro:" + "Data não encontrada", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
-        dtmDespesas.setRowCount(0);
+            DefaultTableModel dtmDespesas = (DefaultTableModel) tabelaDatas.getModel();
 
-        for (Despesa despesa : despesas) {
-            Object[] linha = {despesa.getId(), despesa.getNome(), despesa.getPreco(), despesa.getStatus(), despesa.getDataVencimento()};
-            dtmDespesas.addRow(linha);
-        }
+            dtmDespesas.setRowCount(0);
 
-        txtAno.setText("");
-        txtDia.setText("");
+            for (Despesa despesa : despesas) {
+                Object[] linha = {despesa.getId(), despesa.getNome(), despesa.getPreco(), despesa.getStatus(), despesa.getDataVencimento()};
+                dtmDespesas.addRow(linha);
+            }
 
-        double total = 0;
-        for (Despesa despesa : despesas){
+            txtAno.setText("");
+            txtDia.setText("");
+
+            double total = 0;
+            for (Despesa despesa : despesas) {
                 total += despesa.getPreco();
+            }
+
+            totalMensal.setText("R$ " + String.format("%.2f", total));
         }
-
-        totalMensal.setText("R$ " + String.format("%.2f", total));
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
