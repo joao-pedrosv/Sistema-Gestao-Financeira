@@ -105,9 +105,45 @@ public class UsuarioDAOImpl implements UsuarioDAO {
             st.setString(3, senha);
 
             rs = st.executeQuery();
-            return rs.next(); 
+            return rs.next();
         } catch (SQLException e) {
             throw new DBException(e.getMessage());
+        }
+    }
+
+    @Override
+    public Usuario findByEmail(String email) {
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try {
+            st = conn.prepareStatement("SELECT * FROM Usuario WHERE Email = ? ");
+
+            st.setString(1, email);
+            rs = st.executeQuery();
+
+            if (rs.next()) {
+                Usuario usuario = instantiateUsuario(rs);
+                return usuario;
+            }
+            return null;
+        } catch (SQLException e) {
+            throw new DBException(e.getMessage());
+        } finally {
+            DB.fecharStatement(st);
+            DB.fecharResultSet(rs);
+        }
+    }
+
+    private Usuario instantiateUsuario(ResultSet rs) {
+        try {
+            Usuario usuario = new Usuario();
+            usuario.setId(rs.getInt("Id"));
+            usuario.setUsername(rs.getString("Username"));
+            usuario.setEmail(rs.getString("email"));
+            usuario.setSenha(rs.getString("Senha"));
+            return usuario;
+        } catch (SQLException ex) {
+            throw new DBException(ex.getMessage());
         }
     }
 }

@@ -3,6 +3,7 @@ package view;
 import BO.BOFactory;
 import BO.UsuarioBO;
 import javax.swing.JOptionPane;
+import model.Usuario;
 
 public class ExcluirConta extends javax.swing.JFrame {
 
@@ -115,14 +116,22 @@ public class ExcluirConta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (emailDelete.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Erro:" + "Campo não preenchido", "Erro", JOptionPane.ERROR_MESSAGE);
-        } else {
-            usuarioBO.deletar(emailDelete.getText());
-            JOptionPane.showMessageDialog(null, "Conta Excluida!");
-            setVisible(false);
-            Login login = new Login();
-            login.setVisible(true);
+
+        try {
+            if (emailDelete.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Erro:" + "Campo não preenchido", "Erro", JOptionPane.ERROR_MESSAGE);
+            } else {
+
+                Usuario usuario = usuarioBO.findByEmail(emailDelete.getText());
+                usuarioBO.deletar(usuario.getEmail());
+                JOptionPane.showMessageDialog(null, "Conta Excluida!");
+                setVisible(false);
+                Login login = new Login();
+                login.setVisible(true);
+            }
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Erro: " + "Email não encontrado", "Erro", JOptionPane.ERROR_MESSAGE);
+            emailDelete.setText("");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

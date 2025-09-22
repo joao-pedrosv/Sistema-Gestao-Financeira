@@ -1,4 +1,4 @@
-
+  
 package BO;
 
 import DAO.UsuarioDAO;
@@ -28,4 +28,8 @@ public class UsuarioBO {
          return usuarioDAO.login(username, email, senha);
     }
     
+    public Usuario findByEmail(String email){
+        Usuario usuario = usuarioDAO.findByEmail(email);
+        return usuario;
+    }
 }

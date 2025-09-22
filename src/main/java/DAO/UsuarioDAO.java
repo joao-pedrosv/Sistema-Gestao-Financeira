@@ -10,4 +10,5 @@ public interface UsuarioDAO {
     void update(Usuario usuario);
     void delete(String email);
     boolean login(String username, String email, String senha);
+    Usuario findByEmail(String email);
 }
