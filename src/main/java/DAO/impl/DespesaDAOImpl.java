@@ -124,7 +124,7 @@ public class DespesaDAOImpl implements DespesaDAO {
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
-            st = conn.prepareStatement("SELECT * FROM Despesas WHERE status = ?");
+            st = conn.prepareStatement("SELECT * FROM Despesas WHERE status = ? ORDER BY data_vencimento");
 
             st.setString(1, status);
             rs = st.executeQuery();
@@ -150,7 +150,7 @@ public class DespesaDAOImpl implements DespesaDAO {
         PreparedStatement st = null;
         ResultSet rs = null;
         try {
-            st = conn.prepareStatement("SELECT * FROM Despesas WHERE YEAR(data_vencimento) = ? AND MONTH(data_vencimento) = ?");
+            st = conn.prepareStatement("SELECT * FROM Despesas WHERE YEAR(data_vencimento) = ? AND MONTH(data_vencimento) = ? ORDER BY data_vencimento");
 
             st.setInt(1, year);
             st.setInt(2, month);
