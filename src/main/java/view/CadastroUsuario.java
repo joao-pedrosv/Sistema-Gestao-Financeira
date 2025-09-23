@@ -155,8 +155,13 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private void cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarActionPerformed
 
         Usuario usuario = new Usuario(null, cadNomeUsuario.getText(), cadEmail.getText(), cadSenha.getText());
-
-        if (usuario.getEmail().equals("") || usuario.getUsername().equals("") || usuario.getSenha().equals("")) {
+        
+        if (usuarioBO.findByEmail(usuario.getEmail()) != null){
+            JOptionPane.showMessageDialog(null, "Erro: " + "Email já cadastrado", "Erro", JOptionPane.ERROR_MESSAGE);;
+            cadNomeUsuario.setText("");
+            cadEmail.setText("");
+            cadSenha.setText("");
+        }else if (usuario.getEmail().equals("") || usuario.getUsername().equals("") || usuario.getSenha().equals("")) {
             JOptionPane.showMessageDialog(null, "Erro: " + "Campos não preenchidos", "Erro", JOptionPane.ERROR_MESSAGE);
         } else {
             usuarioBO.inserirUsuario(usuario);
